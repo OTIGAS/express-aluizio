@@ -18,7 +18,7 @@ class UsersController {
     return res.json(user);
   }
 
-  public async index(req: Request, res: Response): Promise<Response> {
+  public async list(req: Request, res: Response): Promise<Response> {
     const listUsers = new ListUserService();
 
     const users = await listUsers.execute();

@@ -27,12 +27,11 @@ usersRouter.post(
   usersController.create
 );
 
-usersRouter.get("/", isAuthenticated, usersController.index);
+usersRouter.get("/", isAuthenticated, usersController.list);
 
 usersRouter.patch(
   "/avatar",
   isAuthenticated,
-  isUploadedFile,
   upload.single("avatar"),
   usersAvatarController.update
 );

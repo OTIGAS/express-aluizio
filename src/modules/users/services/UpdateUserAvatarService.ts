@@ -10,11 +10,11 @@ import AppError from "@shared/errors/AppError";
 
 interface IRequest {
   user_id: string;
-  avatarFilename: string;
+  avatar_filename: string;
 }
 
 class UpdateUserAvatarService {
-  public async execute({ user_id, avatarFilename }: IRequest): Promise<User> {
+  public async execute({ user_id, avatar_filename }: IRequest): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository);
 
     const user = await usersRepository.findById(user_id);
@@ -32,7 +32,7 @@ class UpdateUserAvatarService {
       }
     }
 
-    user.avatar = avatarFilename;
+    user.avatar = avatar_filename;
 
     await usersRepository.save(user);
 

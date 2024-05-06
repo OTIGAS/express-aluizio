@@ -6,7 +6,8 @@ import uploadConfig from "@config/upload";
 
 import UsersController from "../controllers/UsersController";
 import UsersAvatarController from "../controllers/UserAvatarController";
-import isAuthenticated from "../../../shared/http/middlewares/isAuthenticated";
+
+import isAuthenticated from "@shared/http/middlewares/isAuthenticated";
 import isUploadedFile from "@shared/http/middlewares/isUploadedFile";
 
 const usersRouter = Router();
@@ -33,6 +34,7 @@ usersRouter.patch(
   "/avatar",
   isAuthenticated,
   upload.single("avatar"),
+  isUploadedFile,
   usersAvatarController.update
 );
 

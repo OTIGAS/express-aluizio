@@ -14,14 +14,7 @@ function isUploadedFile(
 ): void {
   const { filename, fieldname, originalname } = req.file as IUploadFile;
 
-  if (
-    !filename ||
-    filename === "undefined" ||
-    !fieldname ||
-    fieldname === "undefined" ||
-    !originalname ||
-    originalname === "undefined"
-  ) {
+  if (!filename || !fieldname || !originalname) {
     throw new AppError("File not found");
   }
 
